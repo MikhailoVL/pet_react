@@ -1,8 +1,4 @@
-ul li{
-  list-style-type: georgian;
-}
-
-.app_wrapper {
+.app-wrapper {
   display: grid;
   margin: 0 auto;
   width:  1200px;
@@ -16,22 +12,7 @@ ul li{
 
 }
 
-
-
-.header{
-  grid-area: h;
-  background-color: darkgreen;
-}
-.header img{
-  width: 20px;
-}
-
-.content{
+.app-wrapper-content{
   grid-area: n;
   background-color: red;
-}
-
-.nav{
-  grid-area: c;
-  background-color: blue;
 }
