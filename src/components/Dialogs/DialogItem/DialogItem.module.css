@@ -1,0 +1,23 @@
+.dialogsItems a{
+    color: black;
+    padding-left: 5px;
+}
+
+.dialog{
+    padding-bottom: 10px;
+}
+
+.dialogsItems a.active{
+    color: gold;
+}
+
+.dialogsItems img{
+    border-radius: 30px;
+    width: 30px;
+    vertical-align: middle;
+
+}
+
+.dialogsItems {
+    padding: 10px;
+}

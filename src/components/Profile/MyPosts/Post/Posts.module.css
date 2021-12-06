@@ -1,6 +1,9 @@
-.item { color: blue}
+.item { color: white}
 
 .item img{
     border-radius: 30px;
     width: 50px;
+}
+.like {
+    padding-left: 20px;
 }

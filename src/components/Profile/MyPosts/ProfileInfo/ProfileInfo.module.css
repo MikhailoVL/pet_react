@@ -1,0 +1,9 @@
+.info {
+    display: grid;
+
+    grid-template-columns: 2fr 10fr;
+}
+
+.descriptionBlock{
+    padding: 10px;
+}

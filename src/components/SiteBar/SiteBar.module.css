@@ -1,0 +1,28 @@
+
+
+.siteBar{
+  padding: 10px;
+  grid-area: sb;
+  background-color: green;
+  /*grid-template-columns: 1fr 1fr 1fr;*/
+  /*height: 100%;*/
+  /*width: 100%;*/
+  display: flex;
+}
+
+.siteBar img{
+
+  border-radius: 30px;
+  width: 30px;
+  /*align-items: center;*/
+  /*vertical-align: middle;*/
+  horiz-align: center;
+}
+
+.item {
+  background-color: black;
+  width: 50px;
+  horiz-align: center;
+
+  padding: 10px;
+}

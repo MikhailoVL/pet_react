@@ -1,9 +1,26 @@
-.item {
-
-}
 
 
 .nav{
   grid-area: c;
+
   background-color: blue;
+  display: grid;
+  grid-template-areas:
+  "na" "sb";
+  /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+  grid-template-rows: 1fr 1fr;
+
+}
+
+/*.wer{*/
+/*  background-color: gold;*/
+/*  grid-area: na;*/
+/*}*/
+
+.item a {
+  color: white;
+}
+
+.item a.active {
+  color: gold;
 }

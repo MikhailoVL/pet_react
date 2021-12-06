@@ -1,14 +1,28 @@
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
-const MyPosts = () => {
+const MyPosts = (posts) => {
+
+
+    let postsData = posts.postData.map(p => {return <Post key={p.id} message={p.message} likeCount={p.likeCount} />})
+
     return(
-        <div>
-            my post
+        <div className={s.postsBlock}>
+            My post
             <div>
-                <textarea></textarea>
+                <div>
+                    <textarea></textarea>
+                </div>
+                <div>
+                    <button>Add post</button>
+                </div>
+
             </div>
-            <Post massage="33"/>
+            <div className={s.posts}>
+                {postsData}
+                {/*<Post massage="33"/>*/}
+            </div>
+
         </div>
     )
 }

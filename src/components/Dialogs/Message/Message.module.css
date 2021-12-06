@@ -1,0 +1,14 @@
+.message{
+    padding-bottom: 10px;
+    height: 30px;
+
+}
+
+.messages{
+    padding: 15px;
+}
+
+.messages .message{
+     color: white;
+
+}
