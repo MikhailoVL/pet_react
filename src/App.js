@@ -14,10 +14,7 @@ import SiteBar from "./components/SiteBar/SiteBar";
 
 
 const App = (props_data) => {
-    // debugger;
     return(
-
-        <BrowserRouter>
             <div className="app-wrapper">
                 <Header />
                 <Navbar />
@@ -26,17 +23,16 @@ const App = (props_data) => {
                         <Route path="/dialogs/*" element={ <Dialogs
                             messagesPage={props_data.data.messagesPage}/>}/>
                         <Route path='/profile' element={<Profile
-                            postData={props_data.data.profilePage}/>} />
+                            profilePage={props_data.data.profilePage}
+                            addPost={props_data.addPost}
+                            changePost={props_data.changePost}/>} />
                         <Route element={<News/>} path='/news'/>
                         <Route element={<Music/>} path='/music'/>
                         <Route element={<Settings/>} path='/settings'/>
                         <Route element={<SiteBar/>} path='/sitebar'/>
                     </Routes>
                 </div>
-
-
             </div>
-        </BrowserRouter>
     );
 }
 

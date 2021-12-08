@@ -1,20 +1,35 @@
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
+import React from "react";
+import {changePost} from "../../../redux/state";
 
 const MyPosts = (posts) => {
 
+    let postsData = posts.postData.map(p => {return <Post key={p.id} message={p.message} likeCount={p.likeCount} />});
 
-    let postsData = posts.postData.map(p => {return <Post key={p.id} message={p.message} likeCount={p.likeCount} />})
+    let newPostElement = React.createRef();
+
+    let addPost = () => {
+        let text = newPostElement.current.value;
+        posts.addPost()
+        // posts.changePost('')
+    }
+
+    let onPostChange = () => {
+        let text = newPostElement.current.value;
+        posts.changePost(text)
+    }
+
 
     return(
         <div className={s.postsBlock}>
             My post
             <div>
                 <div>
-                    <textarea></textarea>
+                    <textarea ref={newPostElement} onChange={onPostChange} value={posts.newPostText}>enter you post</textarea>
                 </div>
                 <div>
-                    <button>Add post</button>
+                    <button onClick={addPost}>Add post</button>
                 </div>
 
             </div>

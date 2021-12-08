@@ -1,9 +1,8 @@
 import s from './Navbar.module.css'
 import {NavLink} from "react-router-dom";
-// import SiteBar from "../SiteBar/SiteBar";
 import SiteBar from "./../SiteBar/SiteBar";
 import t from "../SiteBar/SiteBar.module.css"
-import Settings from "../Settings/Settings";
+
 
 const Navbar = () => {
     return(
