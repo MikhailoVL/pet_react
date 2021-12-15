@@ -1,6 +1,5 @@
-import {renderEntireTree} from "../render";
-
-
+const ADD_POST = 'ADD_POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 let dialogsData = [
         {id:1, name: 'dimych'},
         {id:2, name: 'Wer'},
@@ -25,6 +24,68 @@ let postsData = [
         {id: 2, message:"something wrong", likeCount:2}
     ];
 
+
+
+let renderEntireTree = () => {
+    console.log('hi')
+}
+
+let store = {
+
+    _state:  {
+        profilePage: {
+            postsData: postsData,
+            newPostText: "mikl"
+        },
+        messagesPage: {
+            messages: messageData,
+            dialogs: dialogsData,
+            newMessage:"enter you message",
+        }
+    },
+
+    getState() {
+        return this._state
+    },
+
+    _callSubscriber(){
+        console.log("State changed")},
+
+    addPost() {
+        let new_post = {
+            id: 5,
+            message: this._state.profilePage.newPostText,
+            likeCount: 0
+        };
+        this._state.profilePage.postsData.push(new_post);
+        this._state.profilePage.newPostText = ""
+        this._callSubscriber(this.getState(), this.addPost);
+    },
+
+    changePost(text) {
+        debugger;
+        this._state.profilePage.newPostText = text
+        this._callSubscriber(this.getState(), this.addPost);
+    },
+
+    subscriber(observe){
+        this._callSubscriber = observe
+    },
+
+    dispatch(action) {
+        if (action.type === ADD_POST) {
+            this.addPost()
+        } else if (action.type === UPDATE_NEW_POST_TEXT){
+            debugger;
+            this.changePost(action.newText)
+        }
+    }
+
+}
+
+
+
+
 let state = {
     profilePage: {
         postsData: postsData,
@@ -33,23 +94,40 @@ let state = {
     messagesPage: {
         messages: messageData,
         dialogs: dialogsData,
+        newMessage:"enter you message",
     }
 }
 
-export let addPost = () =>{
-    let new_post = {
-        id: 5,
-        message: state.profilePage.newPostText,
-        likeCount: 0
+
+
+export let addMessage = () => {
+    let newMessage = {
+        id:5,
+        message: state.messagesPage.newMessage,
     };
-    state.profilePage.postsData.push(new_post);
-    state.profilePage.newPostText = ""
-    renderEntireTree(state, addPost);
+    state.messagesPage.messages.push(newMessage)
+    state.messagesPage.newMessage = ''
+    renderEntireTree(state, store.addPost)
 }
 
-export let changePost = (text) =>{
-    state.profilePage.newPostText = text
-    renderEntireTree(state, addPost);
+export let changeMessage = (text) => {
+    state.messagesPage.newMessage = text
+    renderEntireTree(state,store.addPost)
 }
 
-export default state
+
+export const subscriber = (observe) =>{
+    renderEntireTree = observe;
+}
+export const addPostActionCreator = () => ({type : ADD_POST})
+
+export const updateNewPostActionCreator = (text) =>{
+    return{
+        type: UPDATE_NEW_POST_TEXT, newText: text
+    }
+}
+
+// export default state
+export default store
+
+window.store = store

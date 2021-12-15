@@ -14,7 +14,13 @@ const Dialogs = (props) =>{
 
     let addMessage = () =>{
         let text = newMessage.current.value;
-        alert(text)
+        props.addMessage()
+        // alert(text)
+    }
+
+    let onMessageChange = () =>{
+        let text = newMessage.current.value;
+        props.changeMessage(text)
     }
 
     return(
@@ -25,7 +31,7 @@ const Dialogs = (props) =>{
 
             <div className={cMI.messages}>
                 {messageElement}
-                <textarea ref={newMessage}></textarea>
+                <textarea ref={newMessage} onChange={onMessageChange} value={props.messagesPage.newMessage}></textarea>
                 <button onClick={addMessage}>add message</button>
             </div>
         </div>
