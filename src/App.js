@@ -5,12 +5,12 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 
 
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import SiteBar from "./components/SiteBar/SiteBar";
-import {changeMessage} from "./redux/state";
+
 
 
 
@@ -23,8 +23,7 @@ const App = (props_data) => {
                     <Routes>
                         <Route path="/dialogs/*" element={ <Dialogs
                             messagesPage={props_data.data.messagesPage}
-                            changeMessage={props_data.changeMessage}
-                            addMessage={props_data.addMessage}
+                            dispatch={props_data.dispatch}
                         />}/>
                         <Route path='/profile' element={<Profile
                             profilePage={props_data.data.profilePage}
