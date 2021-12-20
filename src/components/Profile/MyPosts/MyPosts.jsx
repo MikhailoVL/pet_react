@@ -1,19 +1,18 @@
 import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 import React from "react";
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile-reduser";
 
 const MyPosts = (posts) => {
 
-    let postsData = posts.postData.map(p => {return <Post key={p.id} message={p.message} likeCount={p.likeCount} />});
+    let postsData = posts.posts.map(p => {return <Post key={p.id} message={p.message} likeCount={p.likeCount} />});
 
-    let addPost = () => {
-        posts.dispatch(addPostActionCreator())
+    let onClickAddPost = () => {
+        posts.addPost()
     }
 
     let onPostChange = (e) => {
         let text = e.target.value;
-        posts.dispatch(updateNewPostActionCreator(text))
+        posts.changePost(text)
     }
 
     return(
@@ -29,7 +28,7 @@ const MyPosts = (posts) => {
                 </div>
 
                 <div>
-                    <button onClick={addPost}>Add post</button>
+                    <button onClick={onClickAddPost}>Add post</button>
                 </div>
 
             </div>

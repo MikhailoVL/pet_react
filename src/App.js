@@ -10,6 +10,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import SiteBar from "./components/SiteBar/SiteBar";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 
@@ -21,14 +22,9 @@ const App = (props_data) => {
                 <Navbar />
                 <div className='app-wrapper-content'>
                     <Routes>
-                        <Route path="/dialogs/*" element={ <Dialogs
-                            messagesPage={props_data.data.messagesPage}
-                            dispatch={props_data.dispatch}
-                        />}/>
-                        <Route path='/profile' element={<Profile
-                            profilePage={props_data.data.profilePage}
-                            dispatch={props_data.dispatch}
-                            />} />
+                        <Route path="/dialogs/*" element={ <DialogsContainer
+                            store={props_data.store}/>}/>
+                        <Route path='/profile' element={<Profile store={props_data.store} />} />
                         <Route element={<News/>} path='/news'/>
                         <Route element={<Music/>} path='/music'/>
                         <Route element={<Settings/>} path='/settings'/>

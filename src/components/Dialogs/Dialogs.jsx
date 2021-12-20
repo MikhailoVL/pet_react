@@ -4,20 +4,20 @@ import Message from "./Message/Message";
 import cDI from './DialogItem/DialogItem.module.css'
 import cMI from "./Message/Message.module.css"
 import React from "react";
-import {addMessageActionCreator, updateMessageActionCreator} from "../../redux/dilogs-reduser";
+
 
 const Dialogs = (props) =>{
 
-    let dialogsElement = props.messagesPage.dialogs.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
-    let messageElement = props.messagesPage.messages.map(m => <Message key={m.id} message={m.message}/>)
+    let dialogsElement = props.dialogs.map(d => <DialogItem key={d.id} name={d.name} id={d.id}/>)
+    let messageElement = props.messages.map(m => <Message key={m.id} message={m.message}/>)
 
     let addMessage = () =>{
-        props.dispatch(addMessageActionCreator())
+        props.addMessage()
     }
 
     let onMessageChange = (e) =>{
         let text = e.target.value;
-        props.dispatch(updateMessageActionCreator(text))
+        props.changeMessage(text)
     }
 
     return(
@@ -27,7 +27,7 @@ const Dialogs = (props) =>{
             </div>
             <div className={cMI.messages}>
                 {messageElement}
-                <textarea value={props.messagesPage.newMessage} onChange={onMessageChange} placeholder={'Enter your message'}></textarea>
+                <textarea value={props.newMessage} onChange={onMessageChange} placeholder={'Enter your message'}></textarea>
                 <button onClick={addMessage}>add message</button>
             </div>
         </div>

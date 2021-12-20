@@ -1,4 +1,7 @@
-let siteBarReduser = (state, action) => {
+let initialState = {}
+
+
+let siteBarReduser = (state = initialState, action) => {
     return state
 }
 

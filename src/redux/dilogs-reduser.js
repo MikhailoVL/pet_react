@@ -1,7 +1,29 @@
 const SEND_MESSAGE_BODY = 'SEND_MESSAGE_BODY';
 const ADD_MESSAGE_BODY = 'ADD_MESSAGE_BODY';
 
-let dialogsReduser = (state, action) => {
+let initialState = {
+
+            messages: [
+                {id:1, message: 'Hi'},
+                {id:2, message: 'Hererdff'},
+                {id:3, message: 'Hellow'},
+                {id:4, message: 'How are you'},
+                {id:5, message: 'What are you doing'},
+                {id:6, message: 'I am e'},
+            ],
+            dialogs: [
+                {id:1, name: 'dimych'},
+                {id:2, name: 'Wer'},
+                {id:3, name: 'Mikl'},
+                {id:4, name: 'Sveta'},
+                {id:5, name: 'Oleg'},
+                {id:6, name: 'Valera'},
+            ],
+            newMessage:""
+        }
+
+
+let dialogsReduser = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE_BODY:
             let newMessage = {
