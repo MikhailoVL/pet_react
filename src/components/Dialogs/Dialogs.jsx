@@ -12,10 +12,12 @@ const Dialogs = (props) =>{
     let messageElement = props.messages.map(m => <Message key={m.id} message={m.message}/>)
 
     let addMessage = () =>{
+        debugger
         props.addMessage()
     }
 
     let onMessageChange = (e) =>{
+        debugger
         let text = e.target.value;
         props.changeMessage(text)
     }

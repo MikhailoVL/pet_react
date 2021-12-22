@@ -24,27 +24,27 @@ let initialState = {
 
 
 let dialogsReduser = (state = initialState, action) => {
+    debugger
     switch (action.type) {
-        case ADD_MESSAGE_BODY:
+        case ADD_MESSAGE_BODY: {
             let newMessage = {
-                id:5,
+                id: 7,
                 message: state.newMessage,
             };
-            state.messages.push(newMessage);
-            state.newMessage = '';
-            return state;
+            return {...state,newMessage: '', messages: [...state.messages, newMessage]}
+        }
 
-        case SEND_MESSAGE_BODY:
-            state.newMessage = action.text;
-            return state;
+        case SEND_MESSAGE_BODY: {
+            // stateCopy.newMessage = action.text;
+            return {...state, newMessage: action.text};
+        }
         default:
             return state;
     }
 }
 
 export const addMessageActionCreator = () => ({type : ADD_MESSAGE_BODY})
-export const updateMessageActionCreator = (text) => {
-    return {type: SEND_MESSAGE_BODY, text: text}
-}
+export const updateMessageActionCreator = (text) =>
+    ({  type: SEND_MESSAGE_BODY, text: text})
 
 export default dialogsReduser;

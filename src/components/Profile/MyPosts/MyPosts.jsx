@@ -3,7 +3,7 @@ import Post from "./Post/Post";
 import React from "react";
 
 const MyPosts = (posts) => {
-
+    debugger
     let postsData = posts.posts.map(p => {return <Post key={p.id} message={p.message} likeCount={p.likeCount} />});
 
     let onClickAddPost = () => {
