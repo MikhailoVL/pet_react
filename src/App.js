@@ -11,6 +11,8 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import SiteBar from "./components/SiteBar/SiteBar";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UserContainer from "./components/Users/UsersContainer";
+
 
 
 
@@ -29,6 +31,7 @@ const App = (props_data) => {
                         <Route element={<Music/>} path='/music'/>
                         <Route element={<Settings/>} path='/settings'/>
                         <Route element={<SiteBar/>} path='/sitebar'/>
+                        <Route path='/users' element={<UserContainer/>} />
                     </Routes>
                 </div>
             </div>

@@ -24,7 +24,6 @@ let initialState = {
 
 
 let dialogsReduser = (state = initialState, action) => {
-    debugger
     switch (action.type) {
         case ADD_MESSAGE_BODY: {
             let newMessage = {
